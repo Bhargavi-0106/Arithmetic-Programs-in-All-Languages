@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basic Arithmetic Calculator</title>
+
+<style>
+/* 🌌 Magical Animated Background */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #1e1e2f, #3a0ca3, #7209b7, #4361ee);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ✨ Glass Card */
+.calculator {
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    text-align: center;
+    width: 350px;
+    color: white;
+}
+
+/* 💎 Inputs */
+input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+/* 🌟 Buttons */
+button {
+    padding: 10px 15px;
+    margin: 8px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff00cc, #3333ff);
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ffffff;
+}
+
+/* 🪄 Result */
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="calculator">
+    <h2>✨ Basic Calculator ✨</h2>
+
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+
+    <div>
+        <button onclick="add()">+</button>
+        <button onclick="subtract()">−</button>
+        <button onclick="multiply()">×</button>
+        <button onclick="divide()">÷</button>
+    </div>
+
+    <div id="result"></div>
+</div>
+
+<script>
+function getValues() {
+    let a = parseFloat(document.getElementById("num1").value);
+    let b = parseFloat(document.getElementById("num2").value);
+    return [a, b];
+}
+
+function add() {
+    let [a, b] = getValues();
+    document.getElementById("result").innerHTML = "✨ Addition = " + (a + b);
+}
+
+function subtract() {
+    let [a, b] = getValues();
+    document.getElementById("result").innerHTML = "✨ Subtraction = " + (a - b);
+}
+
+function multiply() {
+    let [a, b] = getValues();
+    document.getElementById("result").innerHTML = "✨ Multiplication = " + (a * b);
+}
+
+function divide() {
+    let [a, b] = getValues();
+    if (b !== 0)
+        document.getElementById("result").innerHTML = "✨ Division = " + (a / b);
+    else
+        document.getElementById("result").innerHTML = "⚠ Cannot divide by zero!";
+}
+</script>
+
+</body>
+</html>
